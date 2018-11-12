@@ -49,6 +49,7 @@ def get_filters():
 
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     
+    # Reuse this prompt if someone doesn't find the city that they're looking for
     promptCity = "In what city's would you like to ride alone? \n(Type \'list\' to see a list of cities.) "
     
     

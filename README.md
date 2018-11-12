@@ -1,6 +1,9 @@
 ### Date created
 November 12, 2018
 
+### Author
+Andy Viren
+
 ### Project Title
 Solo bike ride
 
