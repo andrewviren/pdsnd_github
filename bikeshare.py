@@ -42,11 +42,8 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     
     promptCity = "In what city's would you like to ride alone? \n(Type \'list\' to see a list of cities.) "
-    
     
     city = input(promptCity).title()
 
@@ -189,18 +186,14 @@ def user_stats(df):
 
     # Display counts of user types
     print('\nHere is a breakdown of the customers\' membership type')
-    dfUserTypeIndex = df['User Type'].value_counts().index.tolist()
-    dfUserTypevalues = df['User Type'].value_counts().values.tolist()
-    dfUserTypeCounts = pd.DataFrame(dfUserTypevalues,dfUserTypeIndex)
+    dfUserTypeCounts = create_new_list(df, 'User Type')
     dfUserTypeCounts.columns=['Count']
     
     print(dfUserTypeCounts)
 
     #Display counts of gender
     print('\nHere is a breakdown of the customers\' gender')
-    dfGenderIndex = df['Gender'].value_counts().index.tolist()
-    dfGendervalues = df['Gender'].value_counts().values.tolist()
-    dfGenderCounts = pd.DataFrame(dfGendervalues,dfGenderIndex)
+    dfGenderCounts = create_new_list(df, 'Gender')
     dfGenderCounts.columns=['Count']
     print(dfGenderCounts)
 
@@ -215,7 +208,12 @@ def user_stats(df):
     
     print("\n",'-'*80)
 
-
+def create_new_list(df, columnName):
+    #creates new dataframe from two lists
+    values = df[columnName].value_counts().values.tolist()
+    index = df[columnName].value_counts().index.tolist()
+    dfNew = pd.DataFrame(values,index)
+    return dfNew
 
 def main():
     while True:
